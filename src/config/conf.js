@@ -15,7 +15,7 @@ const cons = {
 };
 
 const text = {
-    description: `${cons.projectShowName} 为smt项目提供快捷易用的命令`,
+    description: `${cons.projectShowName} : 为smart mesh项目提供全流程的开发工具`,
     usageTitle: `Usage: ${cons.commandName} <{ccmd}>[命令] [选项]`,
     commanTitle: '命令:',
     optionsTitle: '选项:',

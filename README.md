@@ -1,15 +1,14 @@
-# leek 命令行工具
+# smartmesh 集成开发工具
 
 ## 简介
 
-基于webpack开发的打包工具，为了避免webpack的复杂配置针对公司多页面架构，   
-以及 React + webpack + Nodejs的开发栈，如果是简单项目只需在进行init操作，配置基础的   
-dll 包含的依赖包就可以完成配置
+该工具是针对smartmesh开发的集成开发工具，包括合约的开发、构建、发布，webapp开发、构建 等等和其他的一系列的开发模块，帮助smartmesh合约开发人员快速开发dapp。
 
-## 功能说明
 
-在工具是针对多页面的React架构进行开发的，如果项目非该结构，建议直接使用webpack配置，
-使用这个工具反而增加了复杂度，虽然也可以满足需求
+## webapp功能说明
+
+工具是针对多页面的React架构进行开发的，如果项目非该结构，建议直接使用webpack配置，
+使用这个工具反而增加了复杂度，但是也可以满足需求
 
 项目结构(实例)：
 
@@ -69,54 +68,67 @@ dll 包含的依赖包就可以完成配置
 
 文件说明：
 
-项目的配置文件默认为: .leek.config.js     
-项目生成一文件会放在: .leekConfig/     
+项目的配置文件默认为: .smt.config.js     
+项目生成一文件会放在: .smtConfig/     
 
-自定义webpack 配置 需要修改 .leekConfig/webpack/       
+自定义webpack 配置 需要修改 .smtConfig/webpack/       
 webpack配置文件命名：webpack.config.[模块名].[页面名].js       
 
+## 合约开发说明
+待完善
 
 ## 安装
 
 使用    
-npm install -g leek-cli    
-yarn global add leek-cli    
+npm install -g smt-cli    
 
 ## 使用
 
 ```
-leek                    默认命令
-leek init               初始化项目
-leek server             服务端命令
-leek server build       构建服务端代码
-leek server start       启动服务
-leek bundle             构建前端代码
-leek bundle all         构建前端所有模块
-leek debug              调试前端模块 暂未实现
+smt                    默认命令
+smt init               初始化项目
+smt server             服务端命令
+smt server build       构建服务端代码
+smt server start       启动服务
+smt bundle             构建前端代码
+smt bundle all         构建前端所有模块
+smt debug              调试前端模块 暂未实现
+smt contract           智能合约
+smt contract build     构建智能合约
+smt contract publish   发布智能合约
 ```
 
 命令实例：
 
 ````
 
+       SSSSSSSSSSSSSSS     MMMMMMMM               MMMMMMMM    TTTTTTTTTTTTTTTTTTTTTTT
+     SS:::::::::::::::S    M:::::::M             M:::::::M    T:::::::::::::::::::::T
+    S:::::SSSSSS::::::S    M::::::::M           M::::::::M    T:::::::::::::::::::::T
+    S:::::S     SSSSSSS    M:::::::::M         M:::::::::M    T:::::TT:::::::TT:::::T
+    S:::::S                M::::::::::M       M::::::::::M    TTTTTT  T:::::T  TTTTTT
+    S:::::S                M:::::::::::M     M:::::::::::M            T:::::T
+     S::::SSSS             M:::::::M::::M   M::::M:::::::M            T:::::T
+      SS::::::SSSSS        M::::::M M::::M M::::M M::::::M            T:::::T
+        SSS::::::::SS      M::::::M  M::::M::::M  M::::::M            T:::::T
+           SSSSSS::::S     M::::::M   M:::::::M   M::::::M            T:::::T
+                S:::::S    M::::::M    M:::::M    M::::::M            T:::::T
+                S:::::S    M::::::M     MMMMM     M::::::M            T:::::T
+    SSSSSSS     S:::::S    M::::::M               M::::::M          TT:::::::TT
+    S::::::SSSSSS:::::S    M::::::M               M::::::M          T:::::::::T
+    S:::::::::::::::SS     M::::::M               M::::::M          T:::::::::T
+     SSSSSSSSSSSSSSS       MMMMMMMM               MMMMMMMM          TTTTTTTTTTT
 
-        :::            ::::::::::     ::::::::::     :::    :::
-        :+:            :+:            :+:            :+:   :+:
-        +:+            +:+            +:+            +:+  +:+
-        +#+            +#++:++#       +#++:++#       +#++:++
-        +#+            +#+            +#+            +#+  +#+
-        #+#            #+#            #+#            #+#   #+#
-        ##########     ##########     ##########     ###    ###
+    ======================================================================================
 
-    ===============================================================
-
-    当前版本: 0.0.8
-    Leek cli 为leek项目提供快捷易用的命令
+    当前版本: 0.1.0
+    smt cli 为smt项目提供快捷易用的命令
 
 命令:
     bundle                                        打包客户端资源
+    contract                                      智能合约
     debug                                         调试应用
-    init                                          初始化leek项目
+    init                                          初始化smt项目
     server                                        后端node服务
 选项:
     -v, --version                                 显示当前版本
@@ -126,28 +138,7 @@ leek debug              调试前端模块 暂未实现
 
 ## 配置模板
 
-参考 leek-config-boilerplate 项目
-
-
 ## 开发说明
-
-整个工具命令行是一个树状结构
-
-```
-root 命令 
-    ---- 命令1
-        ---- 命令1-1
-        ---- 命令1-2
-    ---- 命令2 
-    ---- 命令3 
-```
-
-每一个命令都对应一个动作，每个动作可以接受指定的参数 参数通过 -[opt] 或则 --[opt] 传入
-
-通常情况下这样没问题，但是有些特殊的参数对应的是一些命令比如 leek -v 或者 leek -h 并不是root跟命令，而是输入 leek的版本号 或者 打印 leek 版本信息
-
-
-另外 对于正常命令会通过命令树 找对对应的指令并且配置响应的参数，会尽量找最深的命令配置，如果没有找到则说明输入有误。
 
 配置例子：
 ```
@@ -161,9 +152,9 @@ module.exports = {
     "dist": "../../dist",
     "clientAlias": "client",
     "isInlineCss": "false",
-    "leekConfig": "./.leekConfig/",
-    "leekWebpackConfigDir": "{{leekConfig}}/webpack/",
-    "leekManifsetDir": "{{leekConfig}}/manifest/",
+    "smtConfig": "./.smtConfig/",
+    "smtWebpackConfigDir": "{{smtConfig}}/webpack/",
+    "smtManifsetDir": "{{smtConfig}}/manifest/",
     "configIn": "client",
     "client": {
         "assetsDir": "./assets/",
@@ -224,18 +215,12 @@ module.exports = {
     }
 }
 
-
-
-
 ```
 
 ## 更新说明
 
-v0.1.4
-
 1. 添加对css和scss typescript声明文件的自动生成的支持 （并不完善）
 2. 修复commonJSName和commonCSSName的配置
-
 
 
 ## 需要优化的内容
