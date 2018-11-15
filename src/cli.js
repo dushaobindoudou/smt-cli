@@ -2,7 +2,7 @@
 * @Author: dushaobin <smartmesh>
 * @Date:   2017-03-29
 * @Email:  dushaobin@w
-* @Project: wern
+* @Project: smt-cli
 * @Last modified by:   smartmesh
 * @Last modified time: 2017-04-01
 */
