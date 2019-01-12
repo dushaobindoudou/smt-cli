@@ -219,8 +219,7 @@ module.exports = {
 
 ## 更新说明
 
-1. 添加对css和scss typescript声明文件的自动生成的支持 （并不完善）
-2. 修复commonJSName和commonCSSName的配置
+1. 完成对合约编译的支持
 
 
 ## 需要优化的内容
