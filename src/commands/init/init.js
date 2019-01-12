@@ -59,10 +59,10 @@ function askQuestion(v) {
 const questionList = [
     {
         name: 'projectType',
-        message: '项目类型 (当前版本仅支持react)',
+        message: '项目类型 (当前版本仅支持react):',
         type: 'list',
         default: 0,
-        choices: ['react', 'vue', 'raw'],
+        choices: ['react', 'miniprogram', 'vue', 'raw'],
     },
     {
         name: 'prefix',

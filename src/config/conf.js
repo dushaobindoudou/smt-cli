@@ -102,9 +102,31 @@ const client = {
     base: {},
 };
 
+// 合约默认配置
+const contract = {
+    ext: '.sol', // 编译文件的扩展名
+    dir: 'contract',
+    source: 'source/',
+    dist: 'dist/',
+    buildConfig: {
+        language: 'Solidity',
+        settings: {
+            outputSelection: {
+                '': {
+                    '*': ['*'],
+                },
+                '*': {
+                    '*': ['*'],
+                },
+            },
+        },
+    },
+};
+
 module.exports = {
     text,
     cons,
     logo,
     client,
+    contract,
 };

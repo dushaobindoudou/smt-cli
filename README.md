@@ -248,7 +248,8 @@ improt 'e/b.css';
 ```
 可能在production模式下面引入失败，需要查看一下模块是否是es模块如果是的话，    
 可能会有sideEffects 配置       
-
+2. 如果node-sass安装失败可以使用如下命令试试：
+npm install -g smt-cli --unsafe-perm --registry https://registry.npmjs.org/ --sass-binary-site=http://npm.taobao.org/mirrors/node-sass
 
 参考：
 https://stackoverflow.com/questions/49160752/what-does-webpack-4-expect-from-a-package-with-sideeffects-false      

@@ -9,9 +9,9 @@
 
 /* eslint no-underscore-dangle: [2, { "allowAfterThis": true }] */
 
-import Option from './Option';
-import print from '../utils/print';
-import util from '../utils/util';
+const Option = require('./Option');
+const print = require('../utils/print');
+const util = require('../utils/util');
 
 class Command {
     constructor(cmd, cmds, options) {

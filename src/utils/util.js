@@ -413,7 +413,7 @@ function getSmtProjectInfo() {
         return res;
     }
     // 当前运营的路径 仅支持 要么在 client 根目录 要么在 server根目录
-    // 加入在client目录运行则最后一级目录是client
+    // 假如在client目录运行则最后一级目录是client
     // 假如在server端运行，则必包含一级目录为client
     let smtConf = findSmtConf(pwd);
     if (smtConf) {
